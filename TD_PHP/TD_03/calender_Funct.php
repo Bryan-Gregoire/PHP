@@ -137,3 +137,13 @@ function numéroJour($jour, $mois, $année)
 
     return $h;
 }
+
+function displayCalender($mois,$année) {
+    echo "<table>";
+    afficherTitre($mois, $année);
+    afficherEntête($mois, $année);
+    $nbJours = nombreJours($mois, $année);
+    $décalage = numéroJour($nbJours, $mois, $année);
+    afficherMois($décalage, $nbJours);
+    echo "</table>";
+}

@@ -38,14 +38,7 @@ if (isset($_GET['date'])) {
     $mois = $varDate["month"];
     $année = $varDate["year"];
 
-
-    echo "<table>";
-    afficherTitre($mois, $année);
-    afficherEntête($mois, $année);
-    $nbJours = nombreJours($mois, $année);
-    $décalage = numéroJour($nbJours, $mois, $année);
-    afficherMois($décalage, $nbJours);
-    echo "</table>";
+    displayCalender($mois,$année);
 }
 
 ?>
