@@ -19,6 +19,9 @@ class Message extends Model
             $sql = "SELECT content FROM Message WHERE id=:content";
             $result =  $this->executeRequest($sql, ['content' => $id_mes]);
             $content = $result->fetch();
+            if (!$content) {
+                throw new PDOException();
+            }
             return $content['content'];
         }
     }
