@@ -11,7 +11,8 @@ function allMessages()
 
 function contentMessage()
 {
+    $id_mes = $_GET['id'];
     $message = new Message();
-    $contMessage = $message->getContentMessage();
+    $contMessage = $message->getContentMessage($id_mes);
     require "View/MessageContent.php";
 }

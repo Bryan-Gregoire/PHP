@@ -12,17 +12,14 @@ class Message extends Model
         return $this->executeRequest($sql);
     }
 
-    public function getContentMessage()
+    public function getContentMessage($id)
     {
-        if (isset($_GET['id'])) {
-            $id_mes = $_GET['id'];
-            $sql = "SELECT content FROM Message WHERE id=:content";
-            $result =  $this->executeRequest($sql, ['content' => $id_mes]);
-            $content = $result->fetch();
-            if (!$content) {
-                throw new PDOException();
-            }
-            return $content['content'];
+        $sql = "SELECT content FROM Message WHERE id=:content";
+        $result =  $this->executeRequest($sql, ['content' => $id]);
+        $content = $result->fetch();
+        if (!$content) {
+            throw new Exception();
         }
+        return $content['content'];
     }
 }
