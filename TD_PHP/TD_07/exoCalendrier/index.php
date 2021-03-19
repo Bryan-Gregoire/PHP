@@ -2,6 +2,6 @@
 
 require "vendor/autoload.php";
 
-use G53735\Calendrier;
+use G53735\Calendar;
 
-(new Calendrier)->displayCalender(8,2000);
+Calendar::displayCalender(8,2000);

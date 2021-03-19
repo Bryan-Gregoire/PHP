@@ -4,7 +4,7 @@ namespace G53735;
 
 use Exception;
 
-class Calendrier
+class Calendar
 {
 
     private function nomMois($mois)
