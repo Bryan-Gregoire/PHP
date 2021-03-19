@@ -7,7 +7,7 @@ use Exception;
 class Calendar
 {
 
-    private function nomMois($mois)
+    private static function nomMois($mois)
     {
 
         $nom = "";
@@ -57,7 +57,7 @@ class Calendar
         return $nom;
     }
 
-    private function afficherTitre($mois, $année)
+    private static function afficherTitre($mois, $année)
     {
         nomMois($mois);
         if ($mois < 1 || $mois > 12) {
@@ -66,12 +66,12 @@ class Calendar
         echo "<tr><th colspan = 7>" . nomMois($mois) . " " . $année . "</th></tr>";
     }
 
-    private function afficherEntête()
+    private static function afficherEntête()
     {
         echo "<tr> <td> Lu </td> <td> Ma </td> <td> Me </td> <td> Je </td> <td> Ve </td> <td> Sa </td> <td> Di </td> </tr>";
     }
 
-    private function afficherMois($décalage, $nombreJours)
+    private static function afficherMois($décalage, $nombreJours)
     {
         if ($décalage < 0 || $décalage > 6) {
             throw new Exception("le décalage impossible; " . $décalage);
@@ -95,12 +95,12 @@ class Calendar
         }
     }
 
-    private function estBissextile($année)
+    private static function estBissextile($année)
     {
         return ($année % 4 == 0) && ($année % 100 != 0 || $année % 400 == 0);
     }
 
-    private function nombreJours($mois, $année)
+    private static function nombreJours($mois, $année)
     {
         if ($mois < 1 || $mois > 12) {
             throw new Exception("les mois sont incohérent; " + $mois);
@@ -119,7 +119,7 @@ class Calendar
         return $nbJours;
     }
 
-    private function numéroJour($jour, $mois, $année)
+    private static function numéroJour($jour, $mois, $année)
     {
         if ($mois < 1 || $mois > 12) {
             throw new Exception("Numéro du mois incohérent " + $mois);
@@ -148,11 +148,11 @@ class Calendar
     public static function displayCalender($mois, $année)
     {
         echo "<table>";
-        afficherTitre($mois, $année);
-        afficherEntête($mois, $année);
-        $nbJours = nombreJours($mois, $année);
-        $décalage = numéroJour($nbJours, $mois, $année);
-        afficherMois($décalage, $nbJours);
+        self::afficherTitre($mois, $année);
+        self::afficherEntête($mois, $année);
+        $nbJours = self::nombreJours($mois, $année);
+        $décalage = self::numéroJour($nbJours, $mois, $année);
+        self::afficherMois($décalage, $nbJours);
         echo "</table>";
     }
 }
