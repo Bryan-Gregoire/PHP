@@ -3,7 +3,6 @@
 namespace G53735;
 
 use Exception;
-use SebastianBergmann\Environment\Console;
 
 class Calendar
 {
