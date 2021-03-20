@@ -1,0 +1,10 @@
+{
+    "require": {
+        "symfony/var-dumper": "^5.2",
+        "phpunit/phpunit": "^9.5"
+    },
+    
+    "autoload":{
+        "psr-4": { "G53735\\": "MesClasses" }
+    }
+}
