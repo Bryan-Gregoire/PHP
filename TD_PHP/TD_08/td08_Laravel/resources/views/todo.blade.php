@@ -14,4 +14,12 @@
 </ul>
 @endif
 
+<form action=" {{ URL::to('todos') }}" method="post">
+    @csrf
+    <label for="todo">Tache à ajouter : </label>
+    <input type="text" name="todo" placeholder="Tâche ...">
+    <input type="text" name="descript" placeholder="description de la tâche...">
+    <input type="submit" name="add" value="Ajouter">
+</form>
+
 @endsection

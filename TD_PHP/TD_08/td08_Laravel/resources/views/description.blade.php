@@ -2,10 +2,10 @@
 
 @section('title', 'TODO Description')
 
-@section('header', 'Tâche : ' . $todos[0]->name)
+@section('header', 'Tâche : ' . $todos->name)
 @section('content')
-<p> 
-    {{ $todos[0]->description }}
+<p>
+    {{ $todos->description }}
 </p>
 
 <a href="{{ URL::to('todos') }}">Retour a la liste</a>

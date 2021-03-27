@@ -15,6 +15,15 @@ class Todo
     public static function getTodoDescription($id)
     {
         $description = /*\*/ DB::select('select * from todos where id = ' . $id);
-        return $description;
+        return $description[0];
+    }
+
+    public static function addTodo($name, $description /*= "Aucune description"*/)
+    {
+        if (strlen($description) === 0) {
+            DB::insert('insert into todos(name, description) values("' . $name . '","Aucune description")');
+        } else {
+            DB::insert('insert into todos(name, description) values("' . $name . '","' . $description . '")');
+        }
     }
 }

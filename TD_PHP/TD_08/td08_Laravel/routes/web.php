@@ -23,4 +23,6 @@ Route::get('/hello/{name}', [HelloCtrl::class, 'index']);
 
 Route::get('/todos', [TodoController::class, 'index']);
 
+Route::post('/todos', [TodoController::class, 'index']);
+
 Route::get('/todos/{id}', [TodoController::class, 'getDescription']);
