@@ -27,10 +27,14 @@ class TodoController extends Controller
         return view('description', compact("todos"));
     }
 
+
+    // Sert a rien ? 
     /*     public function insertTodo()
     {
-        if (isset($_POST['todo'])) {
+        //if (isset($_POST['todo'])) { // Pas utile le isset ?
             $_POST['descript'] ? Todo::addTodo($_POST['todo'], $_POST['descript']) : Todo::addTodo($_POST['todo']); //condition toujours respecté, pourquoi ?
-        }
+        //}
+
+        this->index();
     } */
 }
