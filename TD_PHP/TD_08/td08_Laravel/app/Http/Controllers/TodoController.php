@@ -15,4 +15,10 @@ class TodoController extends Controller
 
         return view('todo', compact("todos")); //compact("todos") c'est comme ci je fesait ['todos' => $todos]
     }
+
+    public function getDescription($id_Description)
+    {
+        $todos = Todo::getTodoDescription($id_Description);
+        return view('description', compact("todos"));
+    }
 }

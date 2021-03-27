@@ -23,4 +23,4 @@ Route::get('/hello/{name}', [HelloCtrl::class, 'index']);
 
 Route::get('/todos', [TodoController::class, 'index']);
 
-//Route::get('/todos/{description}', [TodoController::class, 'index']); // Pour l'exercice ?
+Route::get('/todos/{id}', [TodoController::class, 'getDescription']);
