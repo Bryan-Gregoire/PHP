@@ -22,12 +22,20 @@
 </div>
 
 <script>
-    $.getJSON("/api/channels/{{ $idChannel }}/messages", function(data, status) {
-        console.log(data);
-        data.forEach(e => {
-            $("#messages").append("<div>" + e.displayName + "<br>" + e.content + "<br> <br>");
+    function loadMsg() {
+        $.getJSON("/api/channels/{{ $idChannel }}/messages", function(data, status) {
+            $("#messages").empty();
+            data.forEach(e => {
+                $("#messages").append("<div>" + e.displayName + "<br>" + e.content + "<br> <br>");
+                // $("#messages").append($("<div>")
+                //    .append($("<p class='name'>").text(e.login))
+                //    .append($("<p class='content'>").text(e.content)));
+            });
         });
-    });
+
+    }
+    loadMsg();
+    window.setInterval(loadMsg, 5000);
 
     $('#addMsg').submit(function(e) {
         e.preventDefault();
@@ -36,11 +44,15 @@
             $(this).serialize(),
             function(data) {
                 let infos = JSON.parse(data)
-                $("#messages").append("<div>" + infos.login + "<br>" + infos.content + "<br> <br>");
+                $("#messages").append("<div>").append(infos.login).append("<br>" + infos.content + "<br> <br>");
+                // $("#messages").append($("<div>")
+                //   .append($("<p class='name'>").text(infos.login))
+                //  .append($("<p class='content'>").text(infos.content)));
             }, 'text'
         ).fail(function(jqXhr, textStatus, errorThrown) {
             $('#errors').append("Erreur, veuillez réessayer");
         });
+        $('#content').val("");
     });
 </script>
 

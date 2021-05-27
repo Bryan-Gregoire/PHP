@@ -24,8 +24,8 @@ class ChatCtrl extends Controller
         Chat::insertMessage($channelId, $request["login"], $request["content"]);
         return response()->json(
             [
-                "content" => $request["content"],
-                "login" => Chat::getDisplayName($request["login"])
+                "content" => htmlspecialchars($request["content"]),
+                "login" => htmlspecialchars(Chat::getDisplayName($request["login"]))
             ]
         );
     }
